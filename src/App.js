@@ -39,15 +39,14 @@ function Nickname(props) {
   const [nickname, setNickname] = useState('');
   const nickRef = firestore.collection('users');
   const query = nickRef.orderBy('nickname');
-  const [nicknameErr, setNicknameError] = useState(false);
+  const [nicknameErr, setNicknameError] = useState(true);
 
   const [nicknames] = useCollectionData(query, { idField: 'id' });
 
   const checkNickName = (e) => {
     setNickname(e.target.value);
-    setNicknameError(false)
-    if (nicknames.some(u => u.nickname === e.target.value)) setNicknameError(true);
-  }
+    if(e.target.value !== '') {if (!nicknames.some(u => u.nickname === e.target.value)) setNicknameError(false)}else{setNicknameError(true)}
+  } 
   const sendNickname = async (e,props) => {
     e.preventDefault();
     const { uid } = auth.currentUser;
@@ -60,7 +59,6 @@ function Nickname(props) {
     });
     props.setUpdate(false);
   }
-
   return (
     <div className="fade">
       <form className='nickForm' onSubmit={(e)=> sendNickname(e,props) }>
@@ -68,7 +66,7 @@ function Nickname(props) {
       <div className="nickname">
           <input type="text" placeholder="nickname" value={nickname} onChange={checkNickName} />
         </div>
-        <p className="errNick">{nicknameErr ? 'Name is already taken' : null}</p>
+        <p className="errNick">{nicknameErr ? 'Name has already taken' : null}</p>
         <button className="submit" disabled={nicknameErr}>Submit</button>
       </form>
     </div>
