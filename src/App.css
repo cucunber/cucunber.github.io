@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+:focus, :active {
+  outline: none; }
+
+a:focus, a:active {
+  outline: none; }
+
+nav, footer, header, aside {
+  display: block; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+input, button, textarea {
+  font-family: inherit; }
+
+input::-ms-clear {
+  display: none; }
+
+button {
+  cursor: pointer; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+a, a:visited {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+ul li {
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400; }
+
+
+:root{
+  font-size: 16px;
+  font-family: 'Open Sans';
+  --text-primary: #b6b6b6;
+  --text-dark: #141418;
+  --text-secondary: #ececec;
+  --main-color: #FFCC78;
+  --ac-color: #FF805D;
+  --light-ac:#FFE3B4;
+  --color-primary: #23232e;
+  --color-secondary: #141418;
+  --bg-color: #1b1a1d;
+  --transition-speed: all 0.8s ease;
+  --apply: #61C589;
+  --like-color: #ff3347;
+  --error: #FF2323;
+}
+
+body{
+  background-color: var(--bg-color);
+}
+
+.App{
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width:100vw;
+  height:100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  overflow: hidden;
+  flex: 0 0 90%;
+  max-width: 1100px;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+header{
+  flex: 0 0 10%;
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "title signOut";
+  grid-template-columns: 6fr 4fr;
+  background-color:var(--color-primary);
+}
+
+.title{
+  grid-area: title;
+  display: flex;
+  align-items: center;
+}
+
+.title p{
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.signOut{
+  justify-self: center;
+  align-self: center;
+  height: 50%;
+  width:50%;
+  grid-area: signOut;
+  background-color: var(--main-color);
+  box-shadow: 5px 5px 1px#e09c2b;
+}
+
+main{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*signIn*/
+.signInRow{
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.signInRow button{
+  width: 100%;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.email{
+  background-color: var(--main-color);
+  box-shadow: 5px 5px 1px#e09c2b;
+}
+
+.google{
+  background-color: #EA4335;
+  color: #fff;
+  box-shadow: 5px 5px 1px#c72e20;
+}
+
+.anon{
+  background-color: #23232e;
+  color: #b6b6b6;
+  box-shadow: 5px 5px 1px #15151f;
+}
+main section{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+}
+.messageSection{
+  flex: 0 0 90%;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messageSection::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+.messageSection::-webkit-scrollbar-track{
+  background-color: #1F1F1F;
+}
+
+.messageSection::-webkit-scrollbar-thumb{
+  background-color: var(--main-color);
+  border-radius: 0.8rem;
+}
+
+.message{
+  max-width: 90%;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-rows: 2fr;
+}
+
+.msgRow{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.name{
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.msg{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 20px;
+  grid-area: msg;
+  font-size: 1.5rem;
+}
+
+.message img{
+  grid-area: img;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.message.received{
+  align-self: flex-start;
+  grid-gap: 10px;
+  grid-template-areas: "img msg";
+}
+
+.message.received .msg{
+  background-color: var(--text-primary);
+}
+
+.message.sent{
+  margin-right: 10px;
+  align-self: flex-end;
+  grid-gap: 10px;
+  grid-template-areas: "msg img";
+}
+
+.message.sent .name{
+  align-self: flex-end;
+}
+.message.sent .msg{
+  background-color: var(--main-color);
+  justify-self: flex-end;
+}
+
+.form{
+  flex: 0 0 10%;
+  width:50%;
+  display: flex;
+  justify-content: center;
+}
+
+.form textarea{
+  flex: 0 0 80%;
+  padding: 5px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--main-color);
+  resize: none;
+  color: var(--text-primary); 
+}
+
+.form textarea::-webkit-scrollbar{
+  width: 0.25rem;
+}
+
+.form textarea::-webkit-scrollbar-track{
+  background-color: #1F1F1F;
+}
+
+.form textarea::-webkit-scrollbar-thumb{
+  background-color: var(--ac-color);
+  border-radius: 0.8rem;
+}
+
+
+.form button{
+  flex: 0 0 20%;
+  background-color: var(--main-color);
+}
+
+.fade{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.close{
+  display: inline-block;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 10px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.formLog{
+  padding: 15px;
+  display: grid;
+  grid-gap: 10px;
+  width: 250px;
+  height: 200px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  grid-gap: 10px;
+  grid-template-areas: 
+  "login"
+  "pass"
+  "btn"
+  ;
+}
+
+.nickForm{
+  padding: 15px;
+  display: grid;
+  grid-gap: 5px;
+  width: 200px;
+  height: 150px;
+  background-color: var(--main-color);
+  border-radius: 15px;
+  grid-gap: 10px;
+  grid-template-areas: 
+  "nickname"
+  "err"
+  "btn"
+  ;
+}
+
+.login{
+  padding-left: 5px;
+  grid-area: login;
+  background-color: var(--main-color);
+  border: 1px solid rgb(0,0,0);
+  border-radius: 10px;
+}
+
+.passRow{
+  grid-area: pass;
+  display: grid;
+  grid-template-areas: "input btn";
+  grid-template-columns: 9fr 1fr;
+}
+
+.passRow input{
+  padding-left: 5px;
+  grid-area: input;
+  background-color: var(--main-color);
+  border: 1px solid rgb(0,0,0);
+  border-right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.passRow button{
+  line-height: 0px;
+  font-size: 1rem;
+  padding: 5px;
+  grid-area: btn;
+  background-color: var(--main-color);
+  border: 1px solid rgb(0,0,0);
+  border-left: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.submit{
+  font-size: 1rem;
+  height:  100%;
+  border-radius: 10px;
+  border: 1px solid rgb(0,0,0);
+}
+
+.nickname{
+  grid-area: nickname;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nickname input{
+  height: 100%;
+  padding-left: 5px;
+  width:100%;
+  background-color: var(--main-color);
+  border: 1px solid rgb(0,0,0);
+  border-radius: 10px;
+}
+
+.errNick{
+  grid-area: err;
+  color: var(--error);
+}
+
+.error{
+  grid-area: btn;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error p{
+  align-self: flex-start;
+  color: var(--error);
+}
+
+.error button{
+  line-height: 0px;
+  font-size: 1rem;
+  width: 50%;
+  height: 50%;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(0,0,0);
+}
+
+
+@media (max-width:1025px) {
+  .container{
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+  }
+  .form{
+    width:100%;
+  }
+}
+@media (max-width:769px) {
+  .container{
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+  }
+}
+
+@media (max-width:737px) {
+  .container{
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 5px;
+  }
+}
+@media (max-width:415px) {
+  .container{
+    max-width: 100%;
+    margin: 0px auto;
+    padding: 5px;
+  }
+}
