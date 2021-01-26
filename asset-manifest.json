@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/simple-chat/static/css/main.c9ccd262.chunk.css",
+    "main.js": "/simple-chat/static/js/main.a302507b.chunk.js",
+    "main.js.map": "/simple-chat/static/js/main.a302507b.chunk.js.map",
+    "runtime-main.js": "/simple-chat/static/js/runtime-main.c46e1943.js",
+    "runtime-main.js.map": "/simple-chat/static/js/runtime-main.c46e1943.js.map",
+    "static/js/2.d72db3ef.chunk.js": "/simple-chat/static/js/2.d72db3ef.chunk.js",
+    "static/js/2.d72db3ef.chunk.js.map": "/simple-chat/static/js/2.d72db3ef.chunk.js.map",
+    "static/js/3.91572365.chunk.js": "/simple-chat/static/js/3.91572365.chunk.js",
+    "static/js/3.91572365.chunk.js.map": "/simple-chat/static/js/3.91572365.chunk.js.map",
+    "index.html": "/simple-chat/index.html",
+    "static/css/main.c9ccd262.chunk.css.map": "/simple-chat/static/css/main.c9ccd262.chunk.css.map",
+    "static/js/2.d72db3ef.chunk.js.LICENSE.txt": "/simple-chat/static/js/2.d72db3ef.chunk.js.LICENSE.txt",
+    "static/media/preloader.967465df.svg": "/simple-chat/static/media/preloader.967465df.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c46e1943.js",
+    "static/js/2.d72db3ef.chunk.js",
+    "static/css/main.c9ccd262.chunk.css",
+    "static/js/main.a302507b.chunk.js"
+  ]
+}
